@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_02_06_084426) do
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.string "image"
+    t.string "title", null: false
+    t.string "image", null: false
     t.text "content"
     t.bigint "user_id"
     t.datetime "created_at", null: false
