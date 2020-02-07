@@ -1,6 +1,13 @@
 class TweetsController < ApplicationController
-  def index
-    @t
+  def show
+    @tweet = Tweet.find(params[:id])
+    render json: {
+      id: @tweet.id,
+      title: @tweet.title,
+      image: @tweet.image_url,
+      content: @tweet.content,
+      user_id: @tweet.user.id
+    }
   end
 
   def create
