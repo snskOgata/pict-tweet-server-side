@@ -1,4 +1,9 @@
 class TweetsController < ApplicationController
+  def index
+    @tweets = Tweet.all.includes(:user)  
+    render json: @tweets.to_json(:include => [:user]) 
+  end
+
   def show
     @tweet = Tweet.find(params[:id])
     render json: {
